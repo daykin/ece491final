@@ -36,7 +36,6 @@ public class Server {
 	public boolean checkHash(byte[] att, int difficulty){
 		if (att.length == 32){
 			String binString = toBinaryString(att);
-			System.out.println("server calculates: " + binString);
 			for(int i = 0;i<difficulty;i++){
 				if (binString.charAt(i) != '0' ){return false;}
 				}
@@ -49,7 +48,6 @@ public class Server {
 		if(clientAttempts.get(c.id)<=10000){
 		digest.reset();
 		int diff = clientAttempts.get(c.id);
-		System.out.println(diff);
 		return checkHash(digest.digest(ch.getSolution()),diff);
 		}
 		return false;
@@ -74,7 +72,6 @@ public class Server {
 		att = att+1;
 		clientAttempts.put(c.id,att);
 		if(ok==true){
-			System.out.println("request granted, "+ c.id + "! Your Message: "+ ch.getMessage());
 			att = att+1;		
 		}
 		else{

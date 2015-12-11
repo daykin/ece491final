@@ -18,7 +18,6 @@ public class Client {
 	}
 	
 	public void handleChallenge (ChallengeResponse resp, Server srv){
-		System.out.println(resp.getResp());
 		try {
 			Challenge challenge = resp.getCh();
 			challenge.solve();
