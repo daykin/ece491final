@@ -4,7 +4,6 @@ public class Main {
 
 	public static void flood(Client c, int numRequests, Server srv){
 		final Long begin = new Long(System.currentTimeMillis());
-		final Integer numReqs = new Integer(numRequests);
 		Long timeTaken = new Long(begin);
 		for (int i=1;i<=numRequests;i++){
 			c.connect("hahahaha, I will flood your server.", srv);

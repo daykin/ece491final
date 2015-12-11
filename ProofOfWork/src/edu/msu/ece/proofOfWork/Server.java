@@ -2,13 +2,12 @@ package edu.msu.ece.proofOfWork;
 
 
 import java.util.HashMap;
-import java.lang.Math;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
-//Server that handles challenges.
+//Server that handles challenges and requests.
 public class Server {
 	private String id;
 	private static HashMap<String, Integer> clientAttempts = new HashMap<>();
@@ -23,7 +22,7 @@ public class Server {
 		if (!(clientAttempts.containsKey(c.id))){
 			clientAttempts.put(c.id,1);
 		}
-			//difficulty scales with 2^(log10(attempts)+1)
+			
 		return new Challenge(clientAttempts.get(c.id),msg);
 		
 	}
